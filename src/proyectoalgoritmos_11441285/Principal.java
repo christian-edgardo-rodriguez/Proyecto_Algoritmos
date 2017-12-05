@@ -5,6 +5,9 @@
  */
 package proyectoalgoritmos_11441285;
 
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Familia Rodriguez
@@ -28,21 +31,184 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jd_knapsack = new javax.swing.JDialog();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        tf_peso = new javax.swing.JTextField();
+        tf_valor = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
+        tf_capacidad = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        ta_resultado = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
+        jLabel2.setText("KnapSack Recursivo e Iterativo");
+
+        jLabel3.setText("Peso");
+
+        jLabel4.setText("Valor");
+
+        jButton3.setText("Agregar a Lista");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Capacidad");
+
+        jButton4.setText("Realizar Calculos");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        ta_resultado.setColumns(20);
+        ta_resultado.setRows(5);
+        jScrollPane2.setViewportView(ta_resultado);
+
+        javax.swing.GroupLayout jd_knapsackLayout = new javax.swing.GroupLayout(jd_knapsack.getContentPane());
+        jd_knapsack.getContentPane().setLayout(jd_knapsackLayout);
+        jd_knapsackLayout.setHorizontalGroup(
+            jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_knapsackLayout.createSequentialGroup()
+                        .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                                .addGap(94, 94, 94)
+                                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5))
+                                .addGap(23, 23, 23)
+                                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(tf_valor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                                    .addComponent(tf_peso, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_capacidad)))
+                            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                                .addGap(125, 125, 125)
+                                .addComponent(jLabel2))
+                            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                                .addGap(136, 136, 136)
+                                .addComponent(jButton4)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jd_knapsackLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jd_knapsackLayout.setVerticalGroup(
+            jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addGap(28, 28, 28)
+                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(tf_peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(tf_valor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(34, 34, 34)
+                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(tf_capacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jButton1.setText("KnapSack");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Otro");
+
+        jLabel1.setText("Proyecto de Analisis de Algoritmos");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(153, 153, 153)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(115, 115, 115)
+                        .addComponent(jLabel1)))
+                .addContainerGap(121, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addGap(51, 51, 51)
+                .addComponent(jButton1)
+                .addGap(67, 67, 67)
+                .addComponent(jButton2)
+                .addContainerGap(111, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.jd_knapsack.setModal(true);
+        this.jd_knapsack.pack();
+        this.jd_knapsack.setLocationRelativeTo(this);
+        this.jd_knapsack.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        int peso, valor;
+        if (!this.tf_peso.getText().isEmpty() && !this.tf_valor.getText().isEmpty()) {
+            peso = Integer.parseInt(this.tf_peso.getText());
+            valor = Integer.parseInt(this.tf_valor.getText());
+            pesosValores.add(peso);
+            valores.add(valor);
+            this.tf_peso.setText("");
+            this.tf_valor.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this, "Uno o ambos campos estan vacios, no se pudo agregar a la lista.", "Campo Vacio", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (!this.tf_capacidad.getText().isEmpty()) {
+            capacidad = Integer.parseInt(this.tf_capacidad.getText());
+            this.ta_resultado.setText("KnapSack Recursivo: "+ knapSackRecursivo(capacidad, pesosValores, valores, valores.size())
+                +"\nKnapSack Iterativo: "+ knapSackIterativo(capacidad, pesosValores, valores, valores.size()));
+            this.tf_capacidad.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this, "El campo de capacidad esta vacio, no se pudo realizar el calculo.", "Campo Vacio", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,26 +244,62 @@ public class Principal extends javax.swing.JFrame {
             }
         });
         
-        int valores[] = new int[]{85, 150};
+        /*int valores[] = new int[]{85, 150};
         int pesosValores[] = new int[]{5, 30};
         int peso = 50;
         int size = valores.length;
         System.out.println("KnapSack Recursivo: "+ knapSackRecursivo(peso, pesosValores, valores, size));
-        
+        System.out.println("KnapSack Iterativo: "+ knapSackIterativo(peso, pesosValores, valores, size));*/
     }
     
-    static int knapSackRecursivo(int peso, int pesosValores[], int valores[], int size) {
+    static int knapSackRecursivo(int peso, ArrayList pesosValores, ArrayList valores, int size) {
         if (size == 0 || peso == 0) {
             return 0;
         }
-        if (pesosValores[size - 1] > peso) {
+        if (Integer.parseInt(pesosValores.get(size-1).toString()) > peso) {
             return knapSackRecursivo(peso, pesosValores, valores, size - 1);
         } else {
-            return Math.max(valores[size - 1] + knapSackRecursivo(peso - pesosValores[size - 1], pesosValores, valores, size - 1),
+            return Math.max(Integer.parseInt(valores.get(size-1).toString()) + 
+                    knapSackRecursivo(peso - Integer.parseInt(pesosValores.get(size-1).toString()), pesosValores, valores, size - 1),
                     knapSackRecursivo(peso, pesosValores, valores, size - 1)
             );
         }
     }
+    
+    static int knapSackIterativo(int peso, ArrayList pesosValores, ArrayList valores, int size) {
+        int matriz[][] = new int[size + 1][peso + 1];
+        for (int i = 0; i <= size; i++) {
+            for (int j = 0; j <= peso; j++) {
+                if (i == 0 || j == 0) {
+                    matriz[i][j] = 0;
+                } else if (Integer.parseInt(pesosValores.get(i-1).toString()) <= j) {
+                    matriz[i][j] = Math.max(Integer.parseInt(valores.get(i-1).toString()) + 
+                            matriz[i - 1][j - Integer.parseInt(pesosValores.get(i-1).toString())], matriz[i - 1][j]);
+                } else {
+                    matriz[i][j] = matriz[i - 1][j];
+                }
+            }
+        }
+        return matriz[size][peso];
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JDialog jd_knapsack;
+    private javax.swing.JTextArea ta_resultado;
+    private javax.swing.JTextField tf_capacidad;
+    private javax.swing.JTextField tf_peso;
+    private javax.swing.JTextField tf_valor;
     // End of variables declaration//GEN-END:variables
+    ArrayList<Integer> valores = new ArrayList();
+    ArrayList<Integer> pesosValores = new ArrayList();
+    int capacidad;
 }
