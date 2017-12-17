@@ -7,6 +7,7 @@ package proyectoalgoritmos_11441285;
 
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -41,8 +42,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
         tf_capacidad = new javax.swing.JTextField();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        ta_resultado = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
+        tf_tiempo = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        tf_resultado = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabla1 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -69,9 +74,23 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        ta_resultado.setColumns(20);
-        ta_resultado.setRows(5);
-        jScrollPane2.setViewportView(ta_resultado);
+        jLabel6.setText("Tiempo de Ejecución");
+
+        tf_tiempo.setEditable(false);
+
+        jLabel7.setText("Resultado");
+
+        tf_resultado.setEditable(false);
+
+        tabla1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Peso", "Valor"
+            }
+        ));
+        jScrollPane1.setViewportView(tabla1);
 
         javax.swing.GroupLayout jd_knapsackLayout = new javax.swing.GroupLayout(jd_knapsack.getContentPane());
         jd_knapsack.getContentPane().setLayout(jd_knapsackLayout);
@@ -97,16 +116,24 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(jLabel2))
                             .addGroup(jd_knapsackLayout.createSequentialGroup()
                                 .addGap(136, 136, 136)
-                                .addComponent(jButton4)))
+                                .addComponent(jButton4))
+                            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                                .addGap(134, 134, 134)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jLabel6))
+                            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(tf_resultado, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tf_tiempo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING))))
                         .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jd_knapsackLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_knapsackLayout.createSequentialGroup()
+                        .addGap(0, 15, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
-            .addGroup(jd_knapsackLayout.createSequentialGroup()
-                .addGap(134, 134, 134)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jd_knapsackLayout.setVerticalGroup(
             jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,9 +156,17 @@ public class Principal extends javax.swing.JFrame {
                     .addComponent(tf_capacidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel7)
+                .addGap(18, 18, 18)
+                .addComponent(tf_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 152, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(tf_tiempo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -183,7 +218,25 @@ public class Principal extends javax.swing.JFrame {
         this.jd_knapsack.pack();
         this.jd_knapsack.setLocationRelativeTo(this);
         this.jd_knapsack.setVisible(true);
+        this.tf_resultado.setText("");
+        this.tf_tiempo.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if (!this.tf_capacidad.getText().isEmpty()) {
+            capacidad = Integer.parseInt(this.tf_capacidad.getText());
+            long tiempoInicial = System.nanoTime();
+            this.tf_resultado.setText(knapSackRecursivo(capacidad, pesosValores, valores, valores.size())+""
+                /*+"\nKnapSack Iterativo: "+ knapSackIterativo(capacidad, pesosValores, valores, valores.size())*/);
+            long tiempoFinal = System.nanoTime();
+            double duracion = ((double)(tiempoFinal - tiempoInicial))/ 1000000000.0;
+            this.tf_tiempo.setText(duracion+" segundos");
+            this.tf_capacidad.setText("");
+        }else{
+            JOptionPane.showMessageDialog(this, "El campo de capacidad esta vacio"
+                + ", no se pudo realizar el calculo.", "Campo Vacio", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int peso, valor;
@@ -192,23 +245,17 @@ public class Principal extends javax.swing.JFrame {
             valor = Integer.parseInt(this.tf_valor.getText());
             pesosValores.add(peso);
             valores.add(valor);
+            DefaultTableModel modelo = (DefaultTableModel)tabla1.getModel();
+            Object[] newrow={peso, valor};
+            modelo.addRow(newrow);
+            tabla1.setModel(modelo);
             this.tf_peso.setText("");
             this.tf_valor.setText("");
         }else{
-            JOptionPane.showMessageDialog(this, "Uno o ambos campos estan vacios, no se pudo agregar a la lista.", "Campo Vacio", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Uno o ambos campos estan vacios"
+                + ", no se pudo agregar a la lista.", "Campo Vacio", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (!this.tf_capacidad.getText().isEmpty()) {
-            capacidad = Integer.parseInt(this.tf_capacidad.getText());
-            this.ta_resultado.setText("KnapSack Recursivo: "+ knapSackRecursivo(capacidad, pesosValores, valores, valores.size())
-                +"\nKnapSack Iterativo: "+ knapSackIterativo(capacidad, pesosValores, valores, valores.size()));
-            this.tf_capacidad.setText("");
-        }else{
-            JOptionPane.showMessageDialog(this, "El campo de capacidad esta vacio, no se pudo realizar el calculo.", "Campo Vacio", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -266,7 +313,7 @@ public class Principal extends javax.swing.JFrame {
         }
     }
     
-    static int knapSackIterativo(int peso, ArrayList pesosValores, ArrayList valores, int size) {
+    /*static int knapSackIterativo(int peso, ArrayList pesosValores, ArrayList valores, int size) {
         int matriz[][] = new int[size + 1][peso + 1];
         for (int i = 0; i <= size; i++) {
             for (int j = 0; j <= peso; j++) {
@@ -281,7 +328,7 @@ public class Principal extends javax.swing.JFrame {
             }
         }
         return matriz[size][peso];
-    }
+    }*/
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -292,11 +339,15 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_knapsack;
-    private javax.swing.JTextArea ta_resultado;
+    private javax.swing.JTable tabla1;
     private javax.swing.JTextField tf_capacidad;
     private javax.swing.JTextField tf_peso;
+    private javax.swing.JTextField tf_resultado;
+    private javax.swing.JTextField tf_tiempo;
     private javax.swing.JTextField tf_valor;
     // End of variables declaration//GEN-END:variables
     ArrayList<Integer> valores = new ArrayList();
