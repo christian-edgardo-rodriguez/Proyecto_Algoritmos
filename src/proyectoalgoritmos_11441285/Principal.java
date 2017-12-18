@@ -54,6 +54,14 @@ public class Principal extends javax.swing.JFrame {
         tf_resultado = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
+        jd_respuestaVC = new javax.swing.JDialog();
+        if_resultado = new javax.swing.JInternalFrame();
+        jLabel11 = new javax.swing.JLabel();
+        tf_resultadoVC = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        tf_tiempoVC = new javax.swing.JTextField();
+        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
@@ -185,6 +193,90 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        if_resultado.setVisible(true);
+
+        javax.swing.GroupLayout if_resultadoLayout = new javax.swing.GroupLayout(if_resultado.getContentPane());
+        if_resultado.getContentPane().setLayout(if_resultadoLayout);
+        if_resultadoLayout.setHorizontalGroup(
+            if_resultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        if_resultadoLayout.setVerticalGroup(
+            if_resultadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 450, Short.MAX_VALUE)
+        );
+
+        jLabel11.setText("Conjunto Resultante");
+
+        tf_resultadoVC.setEditable(false);
+
+        jLabel12.setText("Tiempo de Ejecución");
+
+        tf_tiempoVC.setEditable(false);
+
+        jButton8.setText("Mostrar");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        jButton9.setText("Refrescar");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jd_respuestaVCLayout = new javax.swing.GroupLayout(jd_respuestaVC.getContentPane());
+        jd_respuestaVC.getContentPane().setLayout(jd_respuestaVCLayout);
+        jd_respuestaVCLayout.setHorizontalGroup(
+            jd_respuestaVCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_respuestaVCLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(if_resultado)
+                .addContainerGap())
+            .addGroup(jd_respuestaVCLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(jd_respuestaVCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_respuestaVCLayout.createSequentialGroup()
+                        .addComponent(jLabel11)
+                        .addGap(226, 226, 226)
+                        .addComponent(jLabel12))
+                    .addGroup(jd_respuestaVCLayout.createSequentialGroup()
+                        .addComponent(tf_resultadoVC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(125, 125, 125)
+                        .addComponent(tf_tiempoVC, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jd_respuestaVCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(64, 64, 64))
+        );
+        jd_respuestaVCLayout.setVerticalGroup(
+            jd_respuestaVCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_respuestaVCLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(if_resultado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jd_respuestaVCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jd_respuestaVCLayout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(jd_respuestaVCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel11)
+                            .addComponent(jLabel12))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jd_respuestaVCLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tf_resultadoVC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tf_tiempoVC, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jd_respuestaVCLayout.createSequentialGroup()
+                        .addGap(12, 12, 12)
+                        .addComponent(jButton9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton8)))
+                .addContainerGap())
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButton1.setText("KnapSack");
@@ -213,7 +305,7 @@ public class Principal extends javax.swing.JFrame {
         );
         if_grafoLayout.setVerticalGroup(
             if_grafoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 596, Short.MAX_VALUE)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
 
         jLabel8.setText("Vertice a Crear");
@@ -262,9 +354,7 @@ public class Principal extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(57, 57, 57)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel10)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jLabel10)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(tf_verticeDestino, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 213, Short.MAX_VALUE)
@@ -446,10 +536,40 @@ public class Principal extends javax.swing.JFrame {
         for (int i = 0; i < vertices.size(); i++) {
             System.out.println(vertices.get(i));
         }
+        long tiempoInicial = System.nanoTime();        
         vertexCoverResp = vertexCover(vertices, aristas);
+        this.tf_resultadoVC.setText(vertexCoverResp.toString());
+        long tiempoFinal = System.nanoTime();
+        double duracion = ((double)(tiempoFinal - tiempoInicial))/ 1000000000.0;
+        this.tf_tiempoVC.setText(duracion+" segundos");
         System.out.println("El tamaño de vertexCover es: "+vertexCoverResp.size());
         System.out.println("El arreglo es: "+vertexCoverResp);
+        this.jd_respuestaVC.setModal(true);
+        this.jd_respuestaVC.pack();
+        this.jd_respuestaVC.setLocationRelativeTo(this);
+        this.jd_respuestaVC.setVisible(true);      
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        componente2.getGraph().getModel().beginUpdate();
+        try {
+            for (int i = 0; i < vertexCoverResp.size(); i++) {
+                componente2.getGraph().insertVertex(padre2, vertexCoverResp.get(i).toString(), vertexCoverResp.get(i).toString(),
+                    posicionGrafo(400), posicionGrafo(400), 80, 30);
+            }
+        } finally {
+            componente2.getGraph().getModel().endUpdate();
+        }
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        grafo2 = new mxGraph();
+        padre2 = grafo2.getDefaultParent();
+        componente2 = new mxGraphComponent(grafo2);
+        componente2.setSize(this.if_resultado.getSize());
+        this.if_resultado.getContentPane().add(componente2);
+        this.if_resultado.repaint();
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -541,6 +661,7 @@ public class Principal extends javax.swing.JFrame {
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JInternalFrame if_grafo;
+    private javax.swing.JInternalFrame if_resultado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -548,8 +669,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -560,11 +685,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JDialog jd_knapsack;
+    private javax.swing.JDialog jd_respuestaVC;
     private javax.swing.JTable tabla1;
     private javax.swing.JTextField tf_capacidad;
     private javax.swing.JTextField tf_peso;
     private javax.swing.JTextField tf_resultado;
+    private javax.swing.JTextField tf_resultadoVC;
     private javax.swing.JTextField tf_tiempo;
+    private javax.swing.JTextField tf_tiempoVC;
     private javax.swing.JTextField tf_valor;
     private javax.swing.JTextField tf_vertice;
     private javax.swing.JTextField tf_verticeDestino;
@@ -579,4 +707,7 @@ public class Principal extends javax.swing.JFrame {
     ArrayList<Integer> vertices;
     ArrayList<Arista> aristas;
     ArrayList vertexCoverResp;
+    mxGraph grafo2;
+    Object padre2;
+    mxGraphComponent componente2;
 }
