@@ -76,7 +76,7 @@ public class Principal extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
 
-        jLabel2.setText("KnapSack Recursivo e Iterativo");
+        jLabel2.setText("KnapSack");
 
         jLabel3.setText("Peso");
 
@@ -125,20 +125,6 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(jd_knapsackLayout.createSequentialGroup()
                         .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jd_knapsackLayout.createSequentialGroup()
-                                .addGap(94, 94, 94)
-                                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5))
-                                .addGap(23, 23, 23)
-                                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(tf_valor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
-                                    .addComponent(tf_peso, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(tf_capacidad)))
-                            .addGroup(jd_knapsackLayout.createSequentialGroup()
-                                .addGap(125, 125, 125)
-                                .addComponent(jLabel2))
-                            .addGroup(jd_knapsackLayout.createSequentialGroup()
                                 .addGap(136, 136, 136)
                                 .addComponent(jButton4))
                             .addGroup(jd_knapsackLayout.createSequentialGroup()
@@ -152,7 +138,20 @@ public class Principal extends javax.swing.JFrame {
                                 .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(tf_resultado, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(tf_tiempo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING))))
+                                    .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)))
+                            .addGroup(jd_knapsackLayout.createSequentialGroup()
+                                .addGap(94, 94, 94)
+                                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel5))
+                                .addGap(23, 23, 23)
+                                .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addGroup(jd_knapsackLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(tf_valor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                                        .addComponent(tf_peso, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(tf_capacidad)))))
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jd_knapsackLayout.createSequentialGroup()
                         .addGap(0, 15, Short.MAX_VALUE)
@@ -606,7 +605,7 @@ public class Principal extends javax.swing.JFrame {
         });
     }
     
-    static int knapSackRecursivo(int peso, ArrayList pesosValores, ArrayList valores, int size) {
+    public static int knapSackRecursivo(int peso, ArrayList pesosValores, ArrayList valores, int size) {
         if (size == 0 || peso == 0) {
             return 0;
         }
@@ -620,7 +619,7 @@ public class Principal extends javax.swing.JFrame {
         }
     }
     
-    public int posicionGrafo(int posicion) {
+    public static int posicionGrafo(int posicion) {
         Random random = new Random();
         return random.nextInt(posicion) + 1;
     }
